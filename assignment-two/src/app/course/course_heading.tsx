@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import '../../styles/styles.css'
 
-const AboutHeading = () => {
+const CourseHeading = () => {
     return (
         <section className="Sub-header">
         <nav>
@@ -14,16 +14,15 @@ const AboutHeading = () => {
                     <li><Link href="/">Home</Link></li>
                     <li><Link href="/course">Course</Link></li>
                     <li><Link href="/blog">Blog</Link></li>
-                    <li><Link href="/About">About</Link></li>
+                    <li><Link href="/about">About</Link></li>
                     <li><Link href="/contact">Contact</Link></li>
                 </ul>
             </div>
             {/* <i className="fa fa-bars" onclick="showMenu()"></i> */}
-           
         </nav>
-        <h1>About Us</h1>
+        <h1>Our Courses</h1>
     </section>
-    )
+    );
 }
 
-export {AboutHeading}
+export {CourseHeading}

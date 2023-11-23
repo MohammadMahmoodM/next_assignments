@@ -15,16 +15,16 @@ const BlogHeader = () => {
               <Link href="/">Home</Link>
             </li>
             <li>
-              <a href="course.html">Course</a>
+              <Link href="course.html">Course</Link>
             </li>
             <li>
-              <a href="blog.html">Blog</a>
+              <Link href="blog.html">Blog</Link>
             </li>
             <li>
               <Link href="/about">About</Link>
             </li>
             <li>
-              <a href="contact.html">Contact</a>
+              <Link href="contact.html">Contact</Link>
             </li>
           </ul>
         </div>
