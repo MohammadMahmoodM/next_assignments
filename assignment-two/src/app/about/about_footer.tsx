@@ -1,15 +1,16 @@
-import Link from 'next/link'
+import Link from "next/link";
+import "../../styles/styles.css";
 
-const Footer = () => {
+const AboutFooter = () => {
   return (
     <section className="footer">
       <hr />
       <h4>About Us</h4>
       <p>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse minima
-        incidunt odio nam facilis, eligendi Itaque fugiat cupiditate
-        consectetur. Aliquid ab deserunt exercitationem, illum molestiae
-        dolorem.
+        incidunt odio nam facilis, eligendi
+        <br /> Itaque fugiat cupiditate consectetur. Aliquid ab deserunt
+        exercitationem, illum molestiae dolorem.
       </p>
 
       <div className="icons">
@@ -20,13 +21,13 @@ const Footer = () => {
       </div>
       <p>
         Made with <i className="fas fa-heart"></i> by{" "}
-        <Link href="/">Mahmood Developer</Link>
+        <a href="/">Mahmood Developer</a>
       </p>
       <p>
-        Copyright © 2021 <Link href="/">Xplore Skill</Link>. All Rights
-        Reserved
+        Copyright © 2021 <Link href="/">Xplore Skill</Link>. All Rights Reserved
       </p>
     </section>
   );
 };
-export {Footer}
+
+export { AboutFooter };
