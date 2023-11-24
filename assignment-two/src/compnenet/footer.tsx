@@ -20,7 +20,7 @@ const Footer = () => {
       </div>
       <p>
         Made with <i className="fas fa-heart"></i> by{" "}
-        <Link href="/">Mahmood Developer</Link>
+        <Link href="/contact">Mahmood Developer</Link>
       </p>
       <p>
         Copyright © 2021 <Link href="/">Xplore Skill</Link>. All Rights

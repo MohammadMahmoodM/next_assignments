@@ -1,4 +1,5 @@
 import Link from "next/link";
+import '../../styles/styles.css'
 
 const BlogHeader = () => {
   return (

@@ -21,7 +21,7 @@ const AboutFooter = () => {
       </div>
       <p>
         Made with <i className="fas fa-heart"></i> by{" "}
-        <a href="/">Mahmood Developer</a>
+        <Link href="/contact">Mahmood Developer</Link>
       </p>
       <p>
         Copyright © 2021 <Link href="/">Xplore Skill</Link>. All Rights Reserved

@@ -1,9 +1,7 @@
-import Image from "next/image";
 import "../styles/styles.css";
 import Link from "next/link";
 
 export default function Header() {
-  // const router = useRouter()
   return (
     <section className="header">
       <nav>
@@ -12,7 +10,7 @@ export default function Header() {
           <i className="fab fa-staylinked"></i>kill
         </Link>
         <div className="nav-links" id="navLinks">
-          {/* <i className="fa fa-times" onclick="hideMenu()"></i> */}
+          {/* <i className="fa fa-times" onClick={hideMenu}></i> */}
           <ul>
             <li>
               <Link href="/">Home</Link>
@@ -31,7 +29,7 @@ export default function Header() {
             </li>
           </ul>
         </div>
-        {/* <i className="fa fa-bars" onclick="showMenu()"></i> */}
+        {/* <i className="fa fa-bars" onClick={showMenu}></i> */}
       </nav>
 
       <div className="text_box">
@@ -42,9 +40,9 @@ export default function Header() {
           consequuntur corrupti sapiente aut porro
           <br /> esse blanditiis in quae perspiciatis quo.
         </p>
-        <a href="/about" className="hero_btn">
+        <Link href="/contact" className="hero_btn">
           Visit Us To Know More
-        </a>
+        </Link>
       </div>
     </section>
   );

@@ -17,7 +17,7 @@ const CourseFooter = () => {
             <i className="fab fa-twitter"></i>
             <i className="fab fa-linkedin"></i>
         </div>
-        <p>Made with <i className="fas fa-heart"></i> by <Link href="#">Mahmood Developer</Link></p>
+        <p>Made with <i className="fas fa-heart"></i> by <Link href="/contact">Mahmood Developer</Link></p>
         <p>Copyright © 2021 <Link href="/">Xplore Skill</Link>. All Rights Reserved</p>
     </section>
     );

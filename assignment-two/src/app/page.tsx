@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Header from '../compnenet/header'
 import Course from '../compnenet/course'
 import {Campus} from '../compnenet/campus'
