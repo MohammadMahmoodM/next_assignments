@@ -1,4 +1,4 @@
-import Image from 'next/Image'
+import Image from 'next/image';
 import libary from '../../public/img/libary.png'
 import playground from '../../public/img/playground.png'
 import food from '../../public/img/food.png'
