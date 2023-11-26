@@ -1,4 +1,4 @@
-import Image from "next/Image";
+import Image from "next/image";
 import Campus1 from "../../public/img/Campus1.png";
 import Campus2 from "../../public/img/Campus2.png";
 import Campus3 from "../../public/img/Campus3.png";

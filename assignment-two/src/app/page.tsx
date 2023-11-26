@@ -1,10 +1,10 @@
-import Header from '../componenet/header'
-import Course from '../componenet/course'
-import {Campus} from '../componenet/campus'
-import {Facilities} from '../componenet/facilities'
-import {Testimonials} from '../componenet/testimonials'
-import {Call_To_Action} from '../componenet/call_to_action'
-import {Footer} from '../componenet/footer'
+import Header from '../components/header'
+import Course from '../components/course'
+import {Campus} from '../components/campus'
+import {Facilities} from '../components/facilities'
+import {Testimonials} from '../components/testimonials'
+import {Call_To_Action} from '../components/call_to_action'
+import {Footer} from '../components/footer'
 
 export default function Home() {
   return (
