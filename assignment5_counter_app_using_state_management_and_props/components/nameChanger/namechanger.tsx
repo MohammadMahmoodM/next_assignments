@@ -122,6 +122,20 @@ export default function NameChanger() {
     }
   }
 
+  
+  let previousIndex = () => {
+    if (index < studentNames.length - 1) {
+      let newIndex = index - 1;
+      setIndex(newIndex);
+
+      let studentObject = studentNames[newIndex];
+
+      setStudentObject(studentObject);
+    } else {
+      alert("No More Student in List");
+    }
+  }
+
     return (
       <div>
         name changer
@@ -130,6 +144,9 @@ export default function NameChanger() {
         <br />
         {studentObject.name}
         <MyButton buttonTitle="Next Student" nextFunction={nextIndex} />
+
+        <MyButton buttonTitle="Previous Student" nextFunction={previousIndex} />
+
       </div>
     )
   }
