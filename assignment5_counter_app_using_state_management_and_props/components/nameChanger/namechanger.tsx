@@ -126,8 +126,10 @@ export default function NameChanger() {
       <div>
         name changer
         <br />
+        <br />
+        <br />
         {studentObject.name}
-        <MyButton nextFunction={nextIndex} />
+        <MyButton buttonTitle="Next Student" nextFunction={nextIndex} />
       </div>
     )
   }
