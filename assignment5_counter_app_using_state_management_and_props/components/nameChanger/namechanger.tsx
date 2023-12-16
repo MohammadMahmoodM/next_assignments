@@ -1,11 +1,10 @@
-'use client'
+"use client"
 
-import MyButton from '../button/mybutton'
-import Student from '../../types/type'
-import {useState} from 'react'
+import MyButton from "../button/mybutton";
+import Student from "../../types/type";
+import { useState } from "react";
 
 export default function NameChanger() {
-
   const studentNames: Student[] = [
     {
       name: "arun",
@@ -107,31 +106,29 @@ export default function NameChanger() {
     },
   ];
 
-  let [index, setIndex] = useState(0)
-  let [studentObject, setStudentObject] = useState(studentNames[index])
+  let [index, setIndex] = useState(0);
+  let [studentObject, setStudentObject] = useState(studentNames[index]);
 
   let nextIndex = () => {
-    if ( index < studentNames.length - 1 ){
-      let newIndex = index + 1
-      setIndex(newIndex)
+    if (index < studentNames.length - 1) {
+      let newIndex = index + 1;
+      setIndex(newIndex);
 
-      let studentObject = studentNames[newIndex]
+      let studentObject = studentNames[newIndex];
 
-      setStudentObject(studentObject)
+      setStudentObject(studentObject);
+    } else {
+      alert("No More Student in List");
     }
-    else{
-      alert("No More Student in List")
-    }
-    
+  }
 
     return (
-        <div>
-            name changer
-
-            <br />
-            {studentObject.name}
-            
-           <MyButton nextFunction={nextIndex}/>
-        </div>
+      <div>
+        name changer
+        <br />
+        {studentObject.name}
+        <MyButton nextFunction={nextIndex} />
+      </div>
     )
-}
+  }
+
