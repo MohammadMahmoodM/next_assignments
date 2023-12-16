@@ -138,17 +138,14 @@ export default function NameChanger() {
 
     return (
       <div className="flex flex-col justify-center items-center ">
-        <p style={{width: "50%"}}>
+        <p className="my-5 text-lg" style={{width: "50%"}}>
         Name Changer Compoenet This is Client Compoenet and as its Calling two button which are 
         below which that's why all child of this componenet will also work as client Components.
         </p>
-        <br />
-        <br />
-        <br />
-        {studentObject.name}
-        <MyButton buttonTitle="Next Student" nextFunction={nextIndex} />
+        <h2 className="text-lg font-bold">Student Name: {studentObject.name}</h2>  
+        <MyButton buttonColor="bg-green-500 p-1 m-1" buttonTitle="Next Student" nextFunction={nextIndex} />
 
-        <MyButton buttonTitle="Previous Student" nextFunction={previousIndex} />
+        <MyButton buttonColor="bg-pink-500 p-1 m-1" buttonTitle="Previous Student" nextFunction={previousIndex} />
 
       </div>
     )
