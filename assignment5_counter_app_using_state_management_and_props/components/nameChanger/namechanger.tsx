@@ -124,7 +124,7 @@ export default function NameChanger() {
 
   
   let previousIndex = () => {
-    if (index < studentNames.length - 1) {
+    if (index > 0) {
       let newIndex = index - 1;
       setIndex(newIndex);
 
