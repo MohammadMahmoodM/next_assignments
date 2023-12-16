@@ -137,8 +137,11 @@ export default function NameChanger() {
   }
 
     return (
-      <div>
-        name changer
+      <div className="flex flex-col justify-center items-center ">
+        <p style={{width: "50%"}}>
+        Name Changer Compoenet This is Client Compoenet and as its Calling two button which are 
+        below which that's why all child of this componenet will also work as client Components.
+        </p>
         <br />
         <br />
         <br />
