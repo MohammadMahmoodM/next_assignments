@@ -2,6 +2,7 @@
 
 import MyButton from '../button/mybutton'
 import Student from '../../types/type'
+import {useState} from 'react'
 
 export default function NameChanger() {
 
@@ -105,12 +106,32 @@ export default function NameChanger() {
       english: 90,
     },
   ];
+
+  let [index, setIndex] = useState(0)
+  let [studentObject, setStudentObject] = useState(studentNames[index])
+
+  let nextIndex = () => {
+    if ( index < studentNames.length - 1 ){
+      let newIndex = index + 1
+      setIndex(newIndex)
+
+      let studentObject = studentNames[newIndex]
+
+      setStudentObject(studentObject)
+    }
+    else{
+      alert("No More Student in List")
+    }
     
 
     return (
         <div>
             name changer
-           <MyButton />
+
+            <br />
+            {studentObject.name}
+            
+           <MyButton nextFunction={nextIndex}/>
         </div>
     )
 }

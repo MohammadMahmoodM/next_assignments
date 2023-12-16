@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function MyButton() {
+export default function MyButton(props) {
     return (
         <div>
-            <button>
+            <button onClick={props.nextFunction}>
                Button for 
             </button>
         </div>
