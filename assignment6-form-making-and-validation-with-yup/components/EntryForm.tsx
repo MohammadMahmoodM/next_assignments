@@ -1,22 +1,23 @@
 "use client";
 import DisplayFormResult from "./displayFormResult";
 import { useState } from "react";
+import {FormEntries, EventEntriesObject} from '../types/FormTypes'
 
 export default function EntryForm() {
-  let [formEntries, setFormEntries] = useState<any>({
+  let [formEntries, setFormEntries] = useState<FormEntries>({
     first_name: "",
     last_name: "",
     son_daughter: "",
     email: "",
-    phone: "",
-    cnic: "",
+    phone: 0,
+    cnic: 0,
     cityname: "",
     street: "",
     PermanentAddress: "",
     message: "",
   });
 
-  const formEntriesHandler = (event: any) => {
+  const formEntriesHandler = (event: EventEntriesObject) => {
     let formEntriesGettingUpdate = {
       ...formEntries,
       [event.target.name]: [event.target.value],

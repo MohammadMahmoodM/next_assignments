@@ -1,4 +1,6 @@
-export default function DisplayFormResult(props: any) {
+import {FormEntries} from '../types/FormTypes'
+
+export default function DisplayFormResult(props: {ObjectContainingAllEntries: FormEntries}) {
   return (
     <div>
       Display Form Result
