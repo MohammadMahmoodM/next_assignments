@@ -1,15 +1,37 @@
 "use client";
 import DisplayFormResult from "./displayFormResult";
+import { useState } from "react";
 
 export default function EntryForm() {
+  let [formEntries, setFormEntries] = useState<any>({
+    first_name: "",
+    last_name: "",
+    son_daughter: "",
+    email: "",
+    phone: "",
+    cnic: "",
+    cityname: "",
+    street: "",
+    PermanentAddress: "",
+    message: "",
+  });
+
+  const formEntriesHandler = (event: any) => {
+    let formEntriesGettingUpdate = {
+      ...formEntries,
+      [event.target.name]: [event.target.value],
+    };
+    setFormEntries(formEntriesGettingUpdate);
+  };
+
   return (
     <div className=" mx-auto bg-white rounded-md p-8 shadow-md">
+      <DisplayFormResult ObjectContainingAllEntries={formEntries}/>
       <h2 className="text-2xl font-bold mb-4">Contact Information</h2>
 
       {/* Form */}
       <form>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            
           <div className="mb-4">
             <label
               htmlFor="first_name"
@@ -18,6 +40,7 @@ export default function EntryForm() {
               First Name
             </label>
             <input
+              onChange={formEntriesHandler}
               type="text"
               id="first_name"
               name="first_name"
@@ -33,6 +56,7 @@ export default function EntryForm() {
               Last Name
             </label>
             <input
+              onChange={formEntriesHandler}
               type="text"
               id="last_name"
               name="last_name"
@@ -42,15 +66,16 @@ export default function EntryForm() {
 
           <div className="mb-4">
             <label
-              htmlFor="son/daughter"
+              htmlFor="son_daughter"
               className="block text-sm font-medium text-gray-600"
             >
               Son/Daughter of
             </label>
             <input
+              onChange={formEntriesHandler}
               type="text"
-              id="son/daughter"
-              name="son/daughter"
+              id="son_daughter"
+              name="son_daughter"
               className="mt-1 p-2 w-full border rounded-md"
             />
           </div>
@@ -63,6 +88,7 @@ export default function EntryForm() {
               Email
             </label>
             <input
+              onChange={formEntriesHandler}
               type="email"
               id="email"
               name="email"
@@ -78,6 +104,7 @@ export default function EntryForm() {
               Phone Number
             </label>
             <input
+              onChange={formEntriesHandler}
               type="tel"
               id="phone"
               name="phone"
@@ -85,7 +112,7 @@ export default function EntryForm() {
             />
           </div>
 
-           <div className="mb-4">
+          <div className="mb-4">
             <label
               htmlFor="cnic"
               className="block text-sm font-medium text-gray-600"
@@ -93,6 +120,7 @@ export default function EntryForm() {
               CNIC
             </label>
             <input
+              onChange={formEntriesHandler}
               type="cnic"
               id="cnic"
               name="cnic"
@@ -100,7 +128,6 @@ export default function EntryForm() {
             />
           </div>
 
-           
           <div className="mb-4">
             <label
               htmlFor="cityname"
@@ -109,6 +136,7 @@ export default function EntryForm() {
               City Name
             </label>
             <input
+              onChange={formEntriesHandler}
               type="city"
               id="cityname"
               name="cityname"
@@ -124,6 +152,7 @@ export default function EntryForm() {
               Street Address
             </label>
             <input
+              onChange={formEntriesHandler}
               type="street"
               id="street"
               name="street"
@@ -139,6 +168,7 @@ export default function EntryForm() {
               Permanent Address
             </label>
             <input
+              onChange={formEntriesHandler}
               type="PermanentAddress"
               id="PermanentAddress"
               name="PermanentAddress"
@@ -155,6 +185,7 @@ export default function EntryForm() {
             Message
           </label>
           <textarea
+            onChange={formEntriesHandler}
             id="message"
             name="message"
             rows={4}
