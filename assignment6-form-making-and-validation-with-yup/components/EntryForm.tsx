@@ -1,6 +1,7 @@
 "use client";
 import DisplayFormResult from "./displayFormResult";
 import { useState } from "react";
+import * as yup from "yup"
 import {FormEntries, EventEntriesObject} from '../types/FormTypes'
 
 export default function EntryForm() {
@@ -17,6 +18,12 @@ export default function EntryForm() {
     message: "",
   });
 
+  const [errors, setError ] = useState<string[]>([])
+
+  const contactInfoSchema = yup.object().shape({
+    name: yup.string().required().min(5).max(10)
+  })
+
   const formEntriesHandler = (event: EventEntriesObject) => {
     let formEntriesGettingUpdate = {
       ...formEntries,
@@ -24,6 +31,27 @@ export default function EntryForm() {
     };
     setFormEntries(formEntriesGettingUpdate);
   };
+
+  const onClickHandler = async () => {
+    try {
+     const result = await contactInfoSchema.validate(formEntries)
+     console.log(result);
+     
+      
+     if (!result) {
+       return 
+     }
+
+    } catch (err:any) {
+
+        setError(err.errors)
+  
+         console.log("error",err.errors);
+         
+       }
+     
+      
+    }
 
   return (
     <div className=" mx-auto bg-white rounded-md p-8 shadow-md">
@@ -197,6 +225,7 @@ export default function EntryForm() {
         {/* Submit Button */}
         <div className="flex items-center">
           <button
+            onClick={onClickHandler}
             type="submit"
             className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600"
           >
