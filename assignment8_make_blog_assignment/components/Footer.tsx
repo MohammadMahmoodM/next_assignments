@@ -30,9 +30,13 @@ const Footer = () => {
 
                 {footerLink.links.map((LinkItem) => {
                   return (
-                    <div>
-                      <Link href={LinkItem.url} className="text-gray-500">{LinkItem.title}</Link>
-                    </div>
+                    <Link
+                      key={LinkItem.title}
+                      href={LinkItem.url}
+                      className="text-gray-500"
+                    >
+                      {LinkItem.title}
+                    </Link>
                   );
                 })}
               </div>
