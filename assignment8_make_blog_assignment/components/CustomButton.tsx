@@ -6,7 +6,7 @@ const CustomButton = (props:CustomButtonProps) => {
         <button 
         disabled={false}
         type={"button"}
-        className={props.containerStyles}
+        className={`custom-btn ${props.containerStyles}`}
         onClick={props.handleClick}
         >
             <span className={`flex-1`}>
