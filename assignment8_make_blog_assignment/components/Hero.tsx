@@ -1,11 +1,10 @@
-'use client'
+"use client";
 import Image from "next/image";
 import { CustomButton } from "@/components";
 
 const Hero = () => {
-
   const handleScroll = () => {
-    alert("Button Clicked")
+    alert("Button Clicked");
   };
 
   return (
@@ -28,12 +27,10 @@ const Hero = () => {
 
       <div className="hero__image-container">
         <div className="hero__image">
-          <Image src= "/hero.png" alt="" fill className="object-contain"/>
-
-          <div className="hero__image-overlay"/>
+          <Image src="/hero.png" alt="" fill className="object-contain" />
         </div>
+        <div className="hero__image-overlay" />
       </div>
-
     </div>
   );
 };
