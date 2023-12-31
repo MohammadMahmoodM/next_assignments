@@ -40,7 +40,6 @@ const CarDetails = ({ isOpen, closeModel, Car }: CarDetailsProps) => {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  
                   <button
                     type="button"
                     className="absolute top-2 right-2 z-10 w-fit p-2 bg-primary-blue-100 rounded-full"
@@ -60,45 +59,74 @@ const CarDetails = ({ isOpen, closeModel, Car }: CarDetailsProps) => {
                       <Image
                         src="/hero.png"
                         alt="car model"
-                        fill priority
+                        fill
+                        priority
                         className="object-contain"
                       />
                     </div>
 
                     <div className="flex gap-3">
-                        <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
+                      <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
                         <Image
-                        src="/hero.png"
-                        alt="car model"
-                        fill priority
-                        className="object-contain"
-                      />
-                        </div>
+                          src="/hero.png"
+                          alt="car model"
+                          fill
+                          priority
+                          className="object-contain"
+                        />
+                      </div>
 
-                        <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
+                      <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
                         <Image
-                        src="/hero.png"
-                        alt="car model"
-                        fill priority
-                        className="object-contain"
-                      />
-                        </div>
+                          src="/hero.png"
+                          alt="car model"
+                          fill
+                          priority
+                          className="object-contain"
+                        />
+                      </div>
 
-                        <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
+                      <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
                         <Image
-                        src="/hero.png"
-                        alt="car model"
-                        fill priority
-                        className="object-contain"
-                      />
-                        </div>
+                          src="/hero.png"
+                          alt="car model"
+                          fill
+                          priority
+                          className="object-contain"
+                        />
+                      </div>
                     </div>
                   </div>
 
                   <div className="flex-1 flex flex-col gap-2">
                     <h2 className="font-semibold text-xl capitalize">
-                        {Car.make} {Car.model}
+                      {Car.make} {Car.model}
                     </h2>
+
+                    <div className="mt-3 flex flex-wrap gap-4">
+                      {Object.entries(Car).map(([key,value])=>{
+                            return (
+                                <div className="flex justify-between gap-5 w-full " key={key}>
+                                    <h3 className="text-gray-700 capitalize">{key.split("_").join(" ")}</h3>
+                                    <p className="text-black-600 bold">{value}</p>
+                                </div>
+                            )
+                        } )}
+                      {/* <div className="flex justify-between gap-5 w-full ">
+                        <h3>city mpg</h3>
+                        <p>{Car.city_mpg}</p>
+                      </div>
+
+                      <div className="flex justify-between gap-5 w-full ">
+                        <h3>class</h3>
+                        <p>{Car.class}</p>
+                      </div>
+
+                      <div className="flex justify-between gap-5 w-full ">
+                        <h3>combination mpg</h3>
+                        <p>{Car.combination_mpg}</p>
+                      </div> */}
+                    </div>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
