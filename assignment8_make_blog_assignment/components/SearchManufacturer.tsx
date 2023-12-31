@@ -9,19 +9,19 @@ import { Combobox, Transition } from "@headlessui/react";
 const SearchManufacturer = (props: any) => {
   const [query, setQuery] = useState("");
 
-  const filteredManufacturers = query === ""
-    ? manufacturers
-    : manufacturers.filter((item) => {
-        return (item
-          .toLowerCase()
-          .replace(/\s+/g, "")
-          .includes(query.toLowerCase().replace(/\s+/g, ""))
-        )
+  const filteredManufacturers =
+    query === ""
+      ? manufacturers
+      : manufacturers.filter((item) => {
+          return item
+            .toLowerCase()
+            .replace(/\s+/g, "")
+            .includes(query.toLowerCase().replace(/\s+/g, ""));
         });
 
   return (
     <div className="search-manufacturer">
-      <Combobox>
+      <Combobox value={props.manufacturer}  onChange={props.setManufacturer}>
         <div className="relative w-full">
           <Combobox.Button className="absolute top-[14px]">
             <Image
@@ -48,21 +48,45 @@ const SearchManufacturer = (props: any) => {
             afterLeave={() => setQuery("")}
           >
             <Combobox.Options>
-                {filteredManufacturers.length === 0 && query !== "" ? (
-                    <Combobox.Option value={query}>
-                        {query}
-                    </Combobox.Option>
-                    
-                ) : (
-                   filteredManufacturers.map((item) => {
-                       return (
-                        <Combobox.Option value={item}>
+              {filteredManufacturers.length === 0 && query !== "" ? (
+                <Combobox.Option value={query}>{query}</Combobox.Option>
+              ) : (
+                filteredManufacturers.map((item) => {
+                  return (
+                    <Combobox.Option
+                      value={item}
+                      className={({ active }) =>
+                        `relative cursor-default select-none py-2 pl-10 pr-4 rounded-full ${
+                          active
+                            ? "bg-primary-blue text-white"
+                            : "text-gray-900"
+                        }`
+                      }
+                    >
+                      {({ selected, active }) => (
+                        <>
+                          <span
+                            className={`block truncate ${
+                              selected ? "font-medium" : "font-normal"
+                            }`}
+                          >
                             {item}
-                        </Combobox.Option>
-                       )
-                   })
-                )
-                }
+                          </span>
+                          {selected ? (
+                            <span
+                              className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
+                                active ? "text-white" : "text-teal-600"
+                              }`}
+                            >
+                          
+                            </span>
+                          ) : null}
+                        </>
+                      )}
+                    </Combobox.Option>
+                  );
+                })
+              )}
             </Combobox.Options>
           </Transition>
         </div>
