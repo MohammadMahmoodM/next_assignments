@@ -1,6 +1,8 @@
+'use client'
 import { CarProps } from "@/types";
+import {useState} from 'react'
 import Image from "next/image";
-import { CustomButton } from "@/components";
+import { CustomButton, CarDetails } from "@/components";
 import { calculateCarRent } from "@/utils";
 
 interface CarPropsType {
@@ -9,6 +11,7 @@ interface CarPropsType {
 
 const CarCard = ({ Car }: CarPropsType) => {
   // const {city_mpg, year,combination_mpg,cylinders,make} = Car;
+  const [isOpen, setIsOpen] = useState(false)
 
   const carRent = calculateCarRent(Car.city_mpg, Car.year);
 
@@ -37,7 +40,7 @@ const CarCard = ({ Car }: CarPropsType) => {
       </div>
 
       <div className="relative flex w-full mt-2">
-        <div className="flex w-full justify-between text-gray">
+        <div className="flex w-full group-hover:invisible  justify-between text-gray">
           <div className="flex flex-col justify-center items-center gap-2">
             <Image
               src="/steering-wheel.svg"
@@ -61,8 +64,21 @@ const CarCard = ({ Car }: CarPropsType) => {
           </div>
         </div>
 
+        <div className="car-card__btn-container">
+            <CustomButton 
+            title="View More"
+            containerStyles="w-full py-[16px] rounded-full
+            bg-blue-900"
+            textStyles="text-white text-[14px] leading-[17px] font-bold"
+            rightIcon="/right-arrow.svg"
+            handleClick={()=> setIsOpen(true)}
+            />
+        </div>
+
 
       </div>
+
+      <CarDetails isOpen={isOpen} closeModel={()=> setIsOpen(false)} Car={Car}/>
     </div>
   );
 };
