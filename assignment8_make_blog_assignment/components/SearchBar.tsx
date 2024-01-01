@@ -1,6 +1,8 @@
 'use client'
 import {useState} from 'react'
 import {SearchManufacturer} from '@/components'
+import {SearchButton} from '@/components'
+
 
 const SearchBar = () => {
 
@@ -17,7 +19,11 @@ const SearchBar = () => {
                manufacturer = {manufacturer}
                setManufacturer = {setManufacturer}
                />
+
+                <SearchButton otherClasses="sm:hidden" />
             </div>
+
+            
         </form>
     )
 }
