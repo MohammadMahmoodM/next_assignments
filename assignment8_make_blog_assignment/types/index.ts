@@ -32,3 +32,22 @@ export interface FilterProps {
     limit: number,
     model: string,
 }
+
+// interface OptionsType {
+//         title: string,
+//         value: string,
+//       }
+
+
+// export interface PropsTypes {
+//     title: string,
+//     options: OptionsType[]
+// }
+
+export interface PropsTypes {
+    title: string,
+    options: [{
+        title: string,
+        value: string,
+      }]
+}
