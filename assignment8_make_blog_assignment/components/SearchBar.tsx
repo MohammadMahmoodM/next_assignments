@@ -22,8 +22,9 @@ const SearchBar = () => {
   };
 
   const updateSearchparams = (carModel: string, manufacturer: string) => {
-    const searchParams = new URLSearchParams(window.location.search);
     
+    const searchParams = new URLSearchParams(window.location.search);
+     
     if (carModel) {
       searchParams.set('model', carModel)
     } 

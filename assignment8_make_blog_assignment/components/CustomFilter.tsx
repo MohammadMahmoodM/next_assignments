@@ -7,7 +7,24 @@ import { Listbox, Transition } from "@headlessui/react";
 import { PropsTypes } from "@/types";
 
 const CustomFilter = ({ title, options }: PropsTypes) => {
+  const Router = useRouter();
   const [selected, setSelected] = useState(options[0]);
+
+  const handleUpdateParams = (type: string, value: string) => {
+    const searchParams = new URLSearchParams(window.location.search);
+
+    // if (carModel) {
+    searchParams.set("type", type);
+    // }
+
+    // if (manufacturer) {
+    searchParams.set("value", value);
+    // }
+
+    const newPathname = `${window.location.pathname}?${searchParams.toString()}`;
+
+    Router.push(newPathname);
+  };
 
   return (
     <div className=" w-44">
@@ -16,13 +33,13 @@ const CustomFilter = ({ title, options }: PropsTypes) => {
           <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
             <span className="block truncate">{selected.title}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-                <Image 
+              <Image
                 src="/chevron-up-down.svg"
                 width={20}
                 height={20}
                 className="ml-4 object-contain"
                 alt="chevron up down"
-                />
+              />
             </span>
           </Listbox.Button>
 
@@ -35,12 +52,9 @@ const CustomFilter = ({ title, options }: PropsTypes) => {
             <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
               {options.map((option) => (
                 <Listbox.Option
-
-                  
-
                   className={({ active }) =>
                     `relative cursor-default select-none py-2 px-5 ${
-                      active ? 'bg-amber-100 text-amber-900' : 'text-gray-900'
+                      active ? "bg-amber-100 text-amber-900" : "text-gray-900"
                     }`
                   }
                   value={option}
@@ -49,7 +63,7 @@ const CustomFilter = ({ title, options }: PropsTypes) => {
                     <>
                       <span
                         className={`block truncate ${
-                          selected ? 'font-medium' : 'font-normal'
+                          selected ? "font-medium" : "font-normal"
                         }`}
                       >
                         {option.title}
@@ -65,7 +79,6 @@ const CustomFilter = ({ title, options }: PropsTypes) => {
               ))}
             </Listbox.Options>
           </Transition>
-
         </div>
       </Listbox>
     </div>
