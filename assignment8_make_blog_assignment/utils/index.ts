@@ -58,11 +58,11 @@ export const updateSearchParams = (type: string, value: string) => {
     const searchParams = new URLSearchParams(window.location.search);
 
     // if (carModel) {
-    searchParams.set("type", type);
+    // searchParams.set("type", type);
     // }
 
     // if (manufacturer) {
-    searchParams.set("value", value);
+    searchParams.set(type, value);
     // }
 
     const newPathname = `${window.location.pathname}?${searchParams.toString()}`;

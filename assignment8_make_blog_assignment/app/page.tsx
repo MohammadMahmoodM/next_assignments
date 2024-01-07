@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Hero, SearchBar, CustomFilter, CarCard } from "@/components";
+import { Hero, SearchBar, CustomFilter, CarCard, ShowMore } from "@/components";
 import {fetchCars} from '@/utils';
 import {fuelTypes, yearsOfProduction} from '@/constants'
 
@@ -40,7 +40,7 @@ export default async function Home({ searchParams }: any) {
 
         {isDataEmpty ? (
           <section className="home__error-container">
-           <h2 className="text-black text-xl font-bold">No Data Found</h2>
+           <h2 className="text-xl font-bold text-black">No Data Found</h2>
             {allCars.message}
           </section>
         ) :(
@@ -56,6 +56,9 @@ export default async function Home({ searchParams }: any) {
                 )
               })}
               </div>
+
+              <ShowMore pageNumber={(searchParams.limit || 10) / 10}
+              isNext = {(searchParams.limit || 10) > allCars.length }/>
           </section>
         )}
 
