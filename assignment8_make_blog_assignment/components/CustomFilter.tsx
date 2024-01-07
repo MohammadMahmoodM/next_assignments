@@ -5,39 +5,32 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Listbox, Transition } from "@headlessui/react";
 import { PropsTypes } from "@/types";
+import {updateSearchParams} from "@/utils"
 
 const CustomFilter = ({ title, options }: PropsTypes) => {
-  const Router = useRouter();
   const [selected, setSelected] = useState(options[0]);
+  const Router = useRouter();
 
-  const handleUpdateParams = (type: string, value: string) => {
-    const searchParams = new URLSearchParams(window.location.search);
 
-    // if (carModel) {
-    searchParams.set("type", type);
-    // }
+  const handleUpdateParams = (e: {title: string, value: string}) => {
+    const newPathName = updateSearchParams(title, e.value.toLowerCase());
 
-    // if (manufacturer) {
-    searchParams.set("value", value);
-    // }
-
-    const newPathname = `${window.location.pathname}?${searchParams.toString()}`;
-
-    Router.push(newPathname);
+    Router.push(newPathName);
   };
 
   return (
     <div className=" w-44">
-      <Listbox value={selected} onChange={setSelected}>
+      <Listbox value={selected} onChange={(e)=>{setSelected(e); 
+        handleUpdateParams(e)}}>
         <div className="relative mt-1">
-          <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
+          <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
             <span className="block truncate">{selected.title}</span>
-            <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+            <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
               <Image
                 src="/chevron-up-down.svg"
                 width={20}
                 height={20}
-                className="ml-4 object-contain"
+                className="object-contain ml-4"
                 alt="chevron up down"
               />
             </span>
@@ -49,7 +42,7 @@ const CustomFilter = ({ title, options }: PropsTypes) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
+            <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black/5 focus:outline-none sm:text-sm">
               {options.map((option) => (
                 <Listbox.Option
                   className={({ active }) =>
@@ -70,7 +63,7 @@ const CustomFilter = ({ title, options }: PropsTypes) => {
                       </span>
                       {selected ? (
                         <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">
-                          {/* <CheckIcon className="h-5 w-5" aria-hidden="true" /> */}
+                          {/* <CheckIcon className="w-5 h-5" aria-hidden="true" /> */}
                         </span>
                       ) : null}
                     </>

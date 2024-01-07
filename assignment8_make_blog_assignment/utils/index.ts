@@ -51,3 +51,21 @@ export const calculateCarRent = (city_mpg: number, year: number) => {
  
     return `${url}`;
     } 
+
+
+export const updateSearchParams = (type: string, value: string) => {
+    
+    const searchParams = new URLSearchParams(window.location.search);
+
+    // if (carModel) {
+    searchParams.set("type", type);
+    // }
+
+    // if (manufacturer) {
+    searchParams.set("value", value);
+    // }
+
+    const newPathname = `${window.location.pathname}?${searchParams.toString()}`;
+
+    return newPathname
+}

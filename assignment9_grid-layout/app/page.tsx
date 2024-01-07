@@ -4,8 +4,9 @@ import NavBar from '../componenets/NavBar'
 export default function Home() {
   return (
     <main>
+
       <NavBar />
-     <GridLayout />
+      <GridLayout />
     </main>
   );
 }
