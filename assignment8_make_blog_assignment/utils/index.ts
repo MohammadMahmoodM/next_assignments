@@ -7,7 +7,7 @@ export async function fetchCars(filter: FilterProps) {
     const options = {
         method: 'GET',
         headers: {
-		'X-RapidAPI-Key': '633f6904d9mshbf76c4e7fcd217ep1665f0jsn453d27bbf746',
+		'X-RapidAPI-Key': 'd37e1f240fmsh8c998c19d05a9fbp1dae9fjsn8b772aa90311',
 		'X-RapidAPI-Host': 'cars-by-api-ninjas.p.rapidapi.com'
     }}
 
@@ -57,13 +57,8 @@ export const updateSearchParams = (type: string, value: string) => {
     
     const searchParams = new URLSearchParams(window.location.search);
 
-    // if (carModel) {
-    // searchParams.set("type", type);
-    // }
-
-    // if (manufacturer) {
+   
     searchParams.set(type, value);
-    // }
 
     const newPathname = `${window.location.pathname}?${searchParams.toString()}`;
 

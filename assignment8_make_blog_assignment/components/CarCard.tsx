@@ -30,7 +30,7 @@ const CarCard = ({ Car }: CarPropsType) => {
         <span className="self-end text-[14px] font-semibold">/day</span>
       </p>
 
-      <div className="relative  h-40 w-full my-5">
+      <div className="relative w-full h-40 my-5">
         <Image
           src="/hero.png"
           alt="car model"
@@ -40,8 +40,8 @@ const CarCard = ({ Car }: CarPropsType) => {
       </div>
 
       <div className="relative flex w-full mt-2">
-        <div className="flex w-full group-hover:invisible  justify-between text-gray">
-          <div className="flex flex-col justify-center items-center gap-2">
+        <div className="flex justify-between w-full group-hover:invisible text-gray">
+          <div className="flex flex-col items-center justify-center gap-2">
             <Image
               src="/steering-wheel.svg"
               width={20}
@@ -53,12 +53,12 @@ const CarCard = ({ Car }: CarPropsType) => {
             </p>
           </div>
 
-          <div className="flex flex-col justify-center items-center gap-2">
+          <div className="flex flex-col items-center justify-center gap-2">
             <Image src="/tire.svg" width={20} height={20} alt="tire" />
             <p className="text-[14px]">{Car.drive.toUpperCase()}</p>
           </div>
 
-          <div className="flex flex-col justify-center items-center gap-2">
+          <div className="flex flex-col items-center justify-center gap-2">
             <Image src="/gas.svg" width={20} height={20} alt="gas" />
             <p className="text-[14px]">{Car.highway_mpg} Mile/Gallon</p>
           </div>
